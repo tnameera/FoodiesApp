@@ -2,13 +2,13 @@ from flask import Flask, redirect, url_for , render_template,request # redirtect
                                                              # render_template will render html page
 import requests
 import json
-from secrets import your_api_key
+from secrets import your_api_key, yelp_api_key
 
 app = Flask(__name__)
 
 # api keys and url
-api_key= 'pilIhjv7ECYrFIT26sJrGYNbqE_S3guFNHCkj-r3Dc3dVlXe1D8B6t1DcCLffVVuHGTlAr2w6f2q_fylv_dAvbqjmmseD8hu4tvEaxUbrSKpt_0jcJS2moYAhK71YHYx'
-headers = {'Authorization': 'Bearer %s' % api_key}
+
+headers = {'Authorization': 'Bearer %s' % yelp_api_key}
 url='https://api.yelp.com/v3/businesses/search'
 
 # home page
