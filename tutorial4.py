@@ -15,6 +15,7 @@ url='https://api.yelp.com/v3/businesses/search'
 
 
 def nameera_yelp_api(location, price, term):
+    print('nameera')
     return str(location) + str(price) + str(term) 
 
 # function call for yelp api
