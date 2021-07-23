@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<form action= "#" method= "post"> <!-- action of form . -->
+     <p>Location:<input type="text" name="location" value="Location"/></P>
+     <p>Price:<input type="number" name="price" min="1" max="4" value="2"/></P>     
+     <p>Cuisine:<input type="text" name="term" value="Cuisine"/></P>
+     <P><input type="submit" value="submit"/></P>
+ </form> <!-- senf information through form . -->
+{%  endblock %}
+
+{% block content2 %}
+<div class="reviews">
+    <div class="column2"> <img src="{{url_for('static', filename='image0.jpg')}}" width="130" height="80"> </div>
+    <div class="column3">
+        <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+        <p>135 E 55th St, New York, NY 10022</p>
+    </div>
+</div>
+<div class="reviews">
+    <div class="column2"><img src="{{url_for('static', filename='image1.jpg')}}" width="130" height="80"></div>
+    <div class="column3">
+        <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+        <p>95 1st Ave, New York, NY 10003</p>
+    </div>
+</div>
+<div class="reviews">
+    <div class="column2"><img src="{{url_for('static', filename='image2.jpg')}}" width="130" height="80"></div>
+    <div class="column3">
+        <p class="revhead"><b>The Sea Fire Grill</b></p>
+        <p>158 E 48th St, New York, NY 10017</p>
+    </div>
+</div>
+{% endblock %}

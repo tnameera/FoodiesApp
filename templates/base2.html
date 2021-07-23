@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+  {% block title %}
+  Foodie App
+  {% endblock %}
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #83819b;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33%;
+  padding: 10px;
+  /*height: 300px;  Should be removed. Only for demonstration */
+}
+
+/* Create three equal columns that floats next to each other */
+.column2 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+  /*height: px;  Should be removed. Only for demonstration */
+}
+/* Create three equal columns that floats next to each other */
+.column3 {
+  float: left;
+  width: 63%;
+  padding: 10px;
+  /*height: px;  Should be removed. Only for demonstration */
+}
+
+.reviews {
+    width: 400px;
+    height: 150px;
+    border:1px solid black; 
+    display:table;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+p.rt {
+    text-align:center;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+</style>
+</head>
+<body>
+
+    
+    <div class="header">
+    <h1>Foodies</h1>
+    <p>Let's eat together!</p>
+</div>
+      
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+      {% block content %}
+      <form action= "#" method= "post"> <!-- action of form . -->
+        <p>Location:<input type="text" name="location"/></P>
+        <p>Price:<input type="number" name="price" min="1" max="4"/></P>     
+        <p>Cuisine:<input type="text" name="term"/></P>
+        <P><input type="submit" value="submit"/></P>
+    </form> <!-- senf information through form . -->
+    {% endblock %}
+    </div>
+    
+    <div class="column" style="background-color:#bbb;">
+      {% block content2 %}
+        <div class="reviews">
+            <div class="column2"> <img src="{{url_for('static', filename='image0.jpg')}}" width="130" height="80"> </div>
+            <div class="column3">
+                <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+                <p>135 E 55th St, New York, NY 10022</p>
+            </div>
+        </div>
+        <div class="reviews">
+            <div class="column2"><img src="{{url_for('static', filename='image1.jpg')}}" width="130" height="80"></div>
+            <div class="column3">
+                <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+                <p>95 1st Ave, New York, NY 10003</p>
+            </div>
+        </div>
+        <div class="reviews">
+            <div class="column2"><img src="{{url_for('static', filename='image2.jpg')}}" width="130" height="80"></div>
+            <div class="column3">
+                <p class="revhead"><b>The Sea Fire Grill</b></p>
+                <p>158 E 48th St, New York, NY 10017</p>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+        <div class="column" style="background-color:#ccc;">
+          
+    
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+            <script>
+            function myMap() {
+                var mapProp= {
+                    center:new google.maps.LatLng(40.75961, -73.9698),
+                    zoom:5,
+                };
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key={{your_api_key}}&callback=myMap"></script>
+
+        </div>
+    
+    </div>
+
+</body>
+</html>
+  
