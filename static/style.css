@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+p {margin: 1}
+
+/* below is for index.html */
+html {
+  text-align: center;
+  background-color: rgb(178, 212, 217);
+}
+h1 {
+  color: black;
+  font-family: 'Poppins';
+  font-size: 50px;
+}
+.searchpagebutton {
+  width: 150px;
+  color: black;
+  text-align: center;
+  font-family: 'Poppins';
+}
+.aboutusbutton {
+  text-align:center;
+  color: black;
+  font-family: 'Poppins';
+}
+.contactusbutton {
+  text-align: center;
+  color: black;
+  font-family: 'Poppins';
+}
+* {
+  box-sizing: border-box;
+}
+/* this is the end for index.html */
+
+/* below is for searchpage.html */
+body {
+  font-family: 'Poppins';
+  background-color: rgb(179, 212, 243);
+  margin: 0;
+}
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(178, 212, 217);
+  color:black;
+}
+.header h1 {
+  font-size: 40px;
+  font-family: 'Poppins';
+}
+.navbar a {
+  float: left;
+  text-align: center;
+  display: block;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+.navbar a.right {
+  float: right;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+  border: black;
+}
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.columnleft {
+  float: left;
+  width: 500px;
+  padding: 10px;
+  border:1px solid gray;
+  flex-shrink: 0;
+}
+.widthgood::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  opacity: 1; /* Firefox */
+}
+
+.widthgood:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.widthgood::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.revised::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  opacity: 1; /* Firefox */
+}
+
+.revised:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.revised::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+/* totally not taken from stack overflow ^^:grimace: */
+/* totally not taken from stack overflow ^^:grimace: */
+.columnmiddle {
+  border:1px solid gray;
+  float: left;
+  width: 500px;
+  height: 400px;
+  flex-shrink: 0;
+  padding: 10px;
+  overflow-y: scroll;
+  position:relative;
+}
+.columnmiddle a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+.columnmiddle a:hover {
+  background-color: #ccc;
+}
+.columnmiddle a.active {
+  background-color: #4CAF50;
+  color: black;
+}
+.columnright {
+  float: left;
+  width: 500px;
+  padding: 10px;
+  border: 1px solid gray; 
+  flex-shrink: 0;
+}
+.reviews {
+    width: 95%;
+    height: 150px;
+    border:1px solid black; 
+    display:table;
+    margin:2.5%; 
+}
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rt {
+  text-align:center;
+  color: black;
+  font-family: 'Poppins';
+}
+.appbut {
+  text-align:center;
+  color: black;
+  font-family: 'Poppins';
+}
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+.widthgood {
+  width: 350px;
+}
+.mainmenubutton1 {
+  font-weight: bold;
+  font-size: 50px;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+  text-align: center;
+}
+input {
+    background: white;
+}
+#search {
+  width: 500px;
+}
+#location {
+  width: 500px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* this is the end for searchpage.html */

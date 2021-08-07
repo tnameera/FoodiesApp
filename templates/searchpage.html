@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Foodie App</title>
+	<link href="{{url_for('static', filename='style2.css')}}" rel="stylesheet" type="text/css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=0.5;">
+	<style>
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+	</script>
+</head>
+
+<body>
+  <!-- commenting out js so that i can use flask -->
+	<script>
+		var restName = '';
+    var restPlc = '';
+    var starRat = '';
+    var priceLev = '';
+    var catOptions = '';
+
+    window.onload = function() {
+      document.getElementById("thebutton").onclick = function() {
+          restName = document.getElementById("searchrestaurant").value;
+          restPlc = document.getElementById("searchlocation").value;
+          axios('https://foodiesapi.siddhantpor.repl.co/', {
+            method: 'GET',
+            header: 'Access-Control-Allow-Origin',
+            params: {
+              place: restPlc,    // removed placeholder, user define
+              name: restName,    // removed placeholder, user define
+              open_now: true, // default
+              price: 2, // default for first search
+              rating: 3,    // default for first search  
+              categories: '' // default for first search  
+            },
+            mode: "cors"
+          }).then((data) => {
+            /*
+            // can you fork this 
+            code to add to google map + code for showing the data on ui as options (?)
+            */ 
+
+            // write here and copy paste everything you write here at line 70
+
+            console.log(data.data)   //  print to inspect element console
+            });
+          }
+        document.getElementById("applybutton").onclick = function() {
+          starRat = document.getElementById("starrating").value;
+          priceLev = document.getElementById("pricelevel").value;
+          catOptions = document.getElementById("categoriesbar").value;
+          axios('https://foodiesapi.siddhantpor.repl.co/', {
+            method: 'GET',
+            header: 'Access-Control-Allow-Origin',
+            params: {
+              place: restPlc,    // removed placeholder, user define
+              name: restName,    // removed placeholder, user define
+              open_now: true, // default
+              price: priceLev, // default for first search
+              rating: starRat,    // default for first search  
+              categories: catOptions // default for first search  
+            },
+            mode: "cors"
+          }).then((data) => {
+            /*
+            code to add to google map + code for showing the data on ui as options (?)
+            */////copy past here
+
+            // data.data.businesses[0].image_url
+            console.log(data.data)
+            });
+        } 
+      }
+	</script>
+  <!-- commenting out js so that i can use flask -->
+	<div class="header">
+    <a href="{{ url_for('home') }}"><button class="homebutton" onclick="">Home</button></a>
+		<a href="{{ url_for('aboutus') }}"><button class="aboutusbutton" onclick="">About Us</button></a>
+    <a href="{{ url_for('contactus') }}"><button class="contactusbutton" onclick="">Contact Us</button></a>
+    <p></p>
+  <a href="{{ url_for('home') }}"><button class="mainmenubutton1" onclick="">Foodies</button></a>
+    <img
+      src= "{{url_for('static', filename='Untitled design (7).png')}}" width = "62" height = "62"/>
+    <div>
+    <datalist id="suggestions"><option>Any</option> </datalist>
+    {% block content %}
+    <form action= "#" method= "post">
+    <input class="widthgood" autoComplete="on" list="suggestions" type="text" placeholder="Search for restaurants here" id="searchrestaurant" name="term"/>
+  </div>
+    <p>
+    <input list="brow" class="widthgood" type="text" placeholder="Search for locations here" id="searchlocation" name="location">
+    <datalist id="brow"><option>Current Location</datalist>
+    <p>
+      <P><input type="submit" name="action" value="Search"/></P>
+    </form>
+    {% endblock %}
+  </a>
+</div>
+
+
+<div class="row">
+    <div class="columnleft" style="background-color: #a0b0c0;">
+        <p class="rt"><b>Restaurant Criteria:</b></p>
+        {% block content4 %}
+        <form action= "#" method= "post">
+        <p> Star Rating:
+          <span><select class="revised" id="starrating" name="starrating" tabindex="0">
+              <option value="1">1 Star</option><option value="2">2 Stars</option><option value="3">3 Stars</option><option value="4">4 Stars</option><option value="5">5 Stars</option></select>               
+        <p> Price Level:
+          <span><select class="revised" id="pricelevel" name="pricelevel" tabindex="0">
+              <option value="1">$</option><option value="2">$$</option><option value="3">$$$</option><option value="4">$$$$</option></select>
+      <p class="rt"><input type="submit" name="action" value="Apply"/>
+        </p>
+    </form>
+    {% endblock %}
+      <!--i got rid of p class rt and /p -->
+    </div>
+    {% block content2 %}
+<div class="columnmiddle" style="background-color:#bbb;">
+ <!--added by nameera to show top three restaurants-->
+
+    <div class="reviews">
+      <div class="column2"> <img src="{{url_for('static', filename='image0.jpg')}}" width="130" height="80"> </div>
+      <div class="column3">
+          <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+          <p>135 E 55th St, New York, NY 10022</p>
+      </div>
+  </div>
+  <div class="reviews">
+      <div class="column2"><img src="{{url_for('static', filename='image1.jpg')}}" width="130" height="80"></div>
+      <div class="column3">
+          <p class="revhead"><b>Upstate Craft Beer & Oyster Bar</b></p>
+          <p>95 1st Ave, New York, NY 10003</p>
+      </div>
+  </div>
+  <div class="reviews">
+      <div class="column2"><img src="{{url_for('static', filename='image2.jpg')}}" width="130" height="80"></div>
+      <div class="column3">
+          <p class="revhead"><b>The Sea Fire Grill</b></p>
+          <p>158 E 48th St, New York, NY 10017</p>
+      </div>
+  </div>
+</div> <!--end column middle-->
+{%  endblock %}
+
+  ​
+  {% block content3 %}  
+  <div class="columnright" style="background-color:#a0b0c0;">
+              <div id="googleMap" style="width:100%;height:400px;"></div>
+  ​
+              <script>
+
+              var latitudes = {{ latitudes | tojson }};
+              var longitudes = {{ longitudes | tojson }};
+
+              function myMap() {
+                  var mapProp= {
+                      center:new google.maps.LatLng(latitudes[0], longitudes[0]),
+                      zoom:10,
+                  };
+              var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+              
+              for (i = 0; i < latitudes.length; i++) {  
+                var uluru = { lat: latitudes[i], lng: longitudes[i] }
+                  var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                  });
+                }
+              
+
+              }
+              </script>
+  ​
+              <script src="https://maps.googleapis.com/maps/api/js?key={{your_api_key}}&callback=myMap"></script>
+  ​
+          </div>
+        </div>
+          {%  endblock %}
+     
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>about us</title>
+    <link href="{{url_for('static', filename='ab_us_style.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="{{ url_for('home') }}"><button class="homebutton" onclick="">Home</button></a>
+      <a href="{{ url_for('aboutus') }}"><button class="aboutusbutton" onclick="">About Us</button></a>
+      <a href="{{ url_for('contactus') }}"><button class="contactusbutton" onclick="">Contact Us</button></a>
+      <a><button class="mainmenubutton1" onclick="">About Foodies </button></a>
+      <img src="{{url_for('static', filename='Untitled design (7).png')}}" width="60" height="60"/>
+    </div>
+    <br></br>
+    <table>
+      <tr>
+        <td><h11>Foodies is an innovative app which has to goal of simplifying the process where friends decide where to dine. This project was completed using the Yelp API, Twilio API, Google Maps API, HTML/CSS/JS, and Python. <br></br>The team that worked on this web-friendly app consisted of Siddhant Porwal, a high school student from Washington State, Nameera Tahseen, a college student from New York State, and John Maher, a college student from Washington State. This team began with a minimal skillset in coding an application with real-world implications; throughout the project, the team members strengthened their programming abilities and finally brought their very first hard-worked project into reality.<br></br>See our CodeDay Labs Showcase Feature Below!</h11></td>
+        <td><img src="{{url_for('static', filename='Untitled design (6).png')}}" width="300px"/></td>
+      </tr>
+    </table>
+    <br></br>
+    <center><iframe src="https://showcase.codeday.org/project/ckqtyhq4591699610quuevdv87b" width="90%" height="800px" frameborder="0"></center></iframe>
+    <br></br>
+    <br></br>
+
+  </body>
+</html>

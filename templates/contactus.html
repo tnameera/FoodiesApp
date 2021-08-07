@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>contact foodies</title>
+    <link href="{{url_for('static', filename='contactus.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="contactus.js"></script>
+    <div class="header">
+      <a href="{{ url_for('home') }}"><button class="homebutton" onclick="">Home</button></a>
+      <a href="{{ url_for('aboutus') }}"><button class="aboutusbutton" onclick="">About Us</button></a>
+      <a href="{{ url_for('contactus') }}"><button class="contactusbutton" onclick="">Contact Us</button></a>
+      <p></p>
+      <a><button class="mainmenubutton1" onclick=""><strong>Contact Foodies </strong></button></a>
+      <img src="{{url_for('static', filename='Untitled design (7).png')}}" width="60" height="60"/>
+    </div>
+    <br></br>
+    <h11><center>Contact us below through the form! We are open to any suggestions, questions, or comments. Thank you for your time! We appreciate it.</center></h11>
+    <br></br>
+    <table class="cntr">
+      <tr>
+        <td><input class="textb" type="text" placeholder="Enter your name"/>
+        <br></br>
+        <textarea class="texta" placeholder="Share your thoughts here"></textarea>
+        <br></br>
+        <input class="textb" type="text" placeholder="Enter your email here"/>
+        <br></br>
+        <button class="gobackbutton">Submit</button>
+        <h11 class="vis" id="finbutton">Thanks for Submitting Feedback!</h11>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

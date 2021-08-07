@@ -1,0 +1,80 @@
+{% extends "searchpage.html" %}
+
+{% block content %}
+<form action= "#" method= "post">
+<input class="widthgood" autoComplete="on" list="suggestions" type="text" placeholder={{term}} id="searchrestaurant" name="term"/>
+</div>
+<p>
+<input list="brow" class="widthgood" type="text" placeholder={{location}} id="searchlocation" name="location">
+<datalist id="brow"><option>Current Location</datalist>
+<p>
+  <P><input type="submit" name="action" value="Search"/></P>
+</form>
+{% endblock %}
+
+{% block content4 %}
+<form action= "#" method= "post">
+<p> Star Rating:
+  <span><select class="revised" id="starrating" name="starrating" tabindex="0">
+      <option value="1">1 Star</option><option value="2">2 Stars</option><option value="3">3 Stars</option><option value="4">4 Stars</option><option value="5">5 Stars</option></select>               
+<p> Price Level:
+  <span><select class="revised" id="pricelevel" name="pricelevel" tabindex="0">
+      <option value="1">$</option><option value="2">$$</option><option value="3">$$$</option><option value="4">$$$$</option></select>
+<p class="rt"><input type="submit" name="action" value="Apply"/>
+</p>
+</form>
+{% endblock %}
+
+{% block content2 %}
+<div class="columnmiddle" style="background-color:#bbb;">
+<p> {{message}} </p>
+    {% for n in index: %}
+    <div class="reviews">
+      <div class="column2"> <img src="{{ url_for('static', filename='image'+ n|string +'.jpg') }}" width="130" height="80"> </div>
+      <div class="column3">
+          <p class="revhead"><b> <a href="{{ urls[n] }}">{{ names[n] }}</a> </b> ( {{ prices[n] }}, {{ ratings[n] }} )</p>
+          <p>{{ addresses[n] }}</p>
+      </div>
+    </div>
+    {% endfor %}
+<form action= "#" method= "post">
+<input class="widthgood" type="text" placeholder="my number" id="phone" name="phone">
+<p class="rt"><input type="submit" name="action" value="Send"/>
+  </p>
+</form>
+</div>
+{%  endblock %}
+
+{% block content3 %}  
+<div class="columnright" style="background-color:#a0b0c0;">
+              <div id="googleMap" style="width:100%;height:400px;"></div>
+  ​
+              <script>
+
+              var latitudes = {{ latitudes | tojson }};
+              var longitudes = {{ longitudes | tojson }};
+
+              function myMap() {
+                  var mapProp= {
+                      center:new google.maps.LatLng(latitudes[0], longitudes[0]),
+                      zoom:10,
+                  };
+              var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+              
+              for (i = 0; i < latitudes.length; i++) {  
+                var uluru = { lat: latitudes[i], lng: longitudes[i] }
+                  var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                  });
+                }
+              
+
+              }
+              </script>
+  ​
+              <script src="https://maps.googleapis.com/maps/api/js?key={{your_api_key}}&callback=myMap"></script>
+  ​
+          </div>
+        </div>
+          {%  endblock %}
